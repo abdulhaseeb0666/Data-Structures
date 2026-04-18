@@ -1,0 +1,15 @@
+# Ignore all executable files
+
+*.exe
+
+# Optional: ignore build folders (common in C++ projects)
+
+build/
+bin/
+out/
+
+# Optional: object and intermediate files
+
+*.o
+*.obj
+*.log
