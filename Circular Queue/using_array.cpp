@@ -159,12 +159,10 @@ int main(){
                 {system("cls");
                 break;}
 
-
             default:
                 {std :: cout<<"Please enter a valid choice"<<endl;
                 break;}
         }
-
 
     }while (option != 0);
     
