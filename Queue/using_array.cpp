@@ -59,7 +59,7 @@ class Queue{
                 return 0;
             }
 
-            if(front == rear){
+            else if(front == rear){
                 popednumber = arr[front];
                 arr[front] = 0;       
                 front = -1;
@@ -82,7 +82,7 @@ class Queue{
                 return number;
             }
             else{
-                for(int i=front ; i<=rear ; ++i){
+                for(int i=0 ; i<=rear ; ++i){
                     number ++;
                 }
                 return number;
