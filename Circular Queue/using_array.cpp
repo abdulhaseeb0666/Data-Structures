@@ -1,4 +1,5 @@
 #include<iostream>
+#include<cstdlib>
 using namespace std;
 
 class CircularQueue{
@@ -107,6 +108,7 @@ int main(){
         std :: cout<<"4. Dequeue"<<endl;
         std :: cout<<"5. Count"<<endl;
         std :: cout<<"6. Display"<<endl;
+        std :: cout<<"7. Clear Screen"<<endl;
 
         cout<<"Enter your option(0 to exit): "; 
         cin>>option;
@@ -152,6 +154,11 @@ int main(){
                 {std :: cout<<"All integers in CircularQueue are given below: "<<endl;
                 q1.display();
                 break;}
+
+            case 7:
+                {system("cls");
+                break;}
+
 
             default:
                 {std :: cout<<"Please enter a valid choice"<<endl;
