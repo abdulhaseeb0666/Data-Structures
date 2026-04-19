@@ -24,7 +24,7 @@ class Queue{
         }
 
         bool isFull(){
-            if(rear == sizeof(arr)-1){
+            if(rear == (sizeof(arr)/4)-1){
                 return true;
             }
             else{
@@ -40,43 +40,53 @@ class Queue{
             }
 
             else if(isEmpty()){
-                rear ++;
-                front ++;
-            }
-            else{
-                rear ++;
+                front = rear = 0;
+                arr[rear] = val;
             }
             
-            arr[rear] = val;
+            else{
+                rear ++;
+                arr[rear] = val;
+            }
+            
         }
 
-        int denque(){
+        int dequeue(){
+            int popednumber = 0;
+
             if(isEmpty()){
                 cout<<"Queue Underflowed...";
                 return 0;
             }
 
             if(front == rear){
-                int popednumber = arr[front];
-                arr[front] == 0;       
+                popednumber = arr[front];
+                arr[front] = 0;       
                 front = -1;
                 rear = -1;
             }
             
             else {
-                int popednumber = arr[front];
-                arr[front] == 0;       
+                popednumber = arr[front];
+                arr[front] = 0;       
                 front ++;
             }
+            
+            return popednumber;
 
         }
 
         int count(){
             int number = 0;
-            for(int i=front ; i<=rear ; i++){
-                number ++;
+            if(front == -1 && rear == -1){
+                return number;
             }
-            return number;
+            else{
+                for(int i=front ; i<=rear ; ++i){
+                    number ++;
+                }
+                return number;
+            }
         }
 
         void display(){
@@ -96,11 +106,10 @@ int main(){
         std :: cout<<"\n\nChose an option from the menu below:\n";
         std :: cout<<"1. isEmpty"<<endl;
         std :: cout<<"2. isFull"<<endl;
-        std :: cout<<"3. Push"<<endl;
-        std :: cout<<"4. Pop"<<endl;
-        std :: cout<<"5. Change"<<endl;
-        std :: cout<<"6. Count"<<endl;
-        std :: cout<<"7. Display"<<endl;
+        std :: cout<<"3. Engueue"<<endl;
+        std :: cout<<"4. Dequeue"<<endl;
+        std :: cout<<"5. Count"<<endl;
+        std :: cout<<"6. Display"<<endl;
 
         cout<<"Enter your option(0 to exit): "; 
         cin>>option;
@@ -133,7 +142,7 @@ int main(){
                 break;}
             
             case 4:
-                {popednunmber = q1.denque();
+                {popednunmber = q1.dequeue();
                 std :: cout<<"Integer poped from stack is: "<<popednunmber<<endl;
                 break;}
             
