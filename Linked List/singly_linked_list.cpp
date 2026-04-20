@@ -1,4 +1,5 @@
 #include<iostream>
+#include<cstdlib>
 using namespace std;
 
 class Node{
@@ -125,12 +126,111 @@ class singlyLinkedList{
             }
         }
 
-        void updateNodeByKey(){
-            
+        void updateNodeByKey(int k , int d){
+            Node* ptr = nodeExists(k);
+
+            if(ptr == NULL){
+                cout<<"Node Node with this key valye exists..."<<endl;
+            }
+            else{
+                ptr->data = d;
+                cout<<"Node Updated Successfully..."<<endl;
+            }
         }
 
+        void display(){
+            if(head == NULL){
+                cout<<"No Node Exists..."<<endl;
+            }
+            else{
+                Node* ptr = head;
+                while(ptr != NULL){
+                    cout<< ptr->key << "\t" << ptr->data << "\t" << ptr->next <<endl;
+                    ptr = ptr->next;
+                }
+            }
+        }
 };
 
 int main(){
+    singlyLinkedList(s);
+    int option;
+    int key1 , k1 , data1 ;
 
+    do{
+        cout<<"********Menu********\n";
+        cout<<"1. Append Node"<<endl;
+        cout<<"2. Prepend Node"<<endl;
+        cout<<"3. Insert Node"<<endl;
+        cout<<"4. Delete Node"<<endl;
+        cout<<"5. Update Node"<<endl;
+        cout<<"6. Print List"<<endl;
+        cout<<"7. Clear Screen"<<endl;
+
+        cout<<"Enter Choice(0 to exit): ";
+        cin>>option;
+
+        Node* n1 = new Node();
+
+        switch(option){
+
+            case 0:
+                break;
+
+            case 1:
+                cout<<"Node Append Operation: \n";
+                cout<<"Enter key of Node: "; cin>>key1;
+                cout<<"Enter Data of Node: "; cin>>data1;
+                n1->key = key1;
+                n1->data = data1;
+                s.appendNode(n1);
+                break;
+                
+            case 2:
+                cout<<"Node Prepend Operation: \n";
+                cout<<"Enter key of Node: "; cin>>key1;
+                cout<<"Enter Data of Node: "; cin>>data1;
+                n1->key = key1;
+                n1->data = data1;
+                s.prependNode(n1);
+                break;
+            
+            case 3:
+                cout<<"Node Insert Operation: \n";
+                
+                cout<<"Enter Key of Node After which you want to insert a Node: "; cin>>k1;
+
+                cout<<"Enter key of Node: "; cin>>key1;
+                cout<<"Enter Data of Node: "; cin>>data1;
+                n1->key = key1;
+                n1->data = data1;
+                s.insertNode(k1 , n1);
+                break;
+            
+            case 4:
+                cout<<"Node Deletion Operation: \n";
+                cout<<"Enter Key of Node that you want to delete: "; cin>>k1;
+                s.deleteNodeByKey(k1);
+                break;
+            
+            case 5:
+                cout<<"Node Updation Operation: \n";
+                cout<<"Enter key of Node that you want to update: "; cin>>key1;
+                cout<<"Enter new data of Node: "; cin>>data1;
+                s.updateNodeByKey(key1 , data1);
+                break;
+            
+            case 6:
+                s.display();
+                break;
+            
+            case 7:
+                system("cls"); 
+                break;
+            
+            default:
+                cout<<"Please Enter a valid Choice"<<endl;
+                break;
+        }
+    }while(option != 0);
 }
