@@ -142,6 +142,7 @@ class DoublyLinkedList{
                 else{
                     if(head->key == key){
                         head = head->next;
+                        delete ptr;
                     }
                     else{
                         Node* prevNode = ptr->prev;
@@ -149,10 +150,12 @@ class DoublyLinkedList{
                         
                         if(nextNode == NULL){
                             prevNode->next = nextNode;
+                            delete ptr;
                         }
                         else{
                             prevNode->next = nextNode;
                             nextNode->prev = prevNode;
+                            delete ptr;
                         }
                         cout<<"\nNode Deleted Successfully....\n";
                     }
