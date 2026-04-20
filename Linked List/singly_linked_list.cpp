@@ -17,6 +17,7 @@ class Node{
         Node(int k , int d){
             key = k;
             data = d;
+            next  = NULL;
         }
 };
 
@@ -41,6 +42,7 @@ class singlyLinkedList{
                 if(ptr -> key == k){
                     temp = ptr;
                 }
+                ptr = ptr->next;
             }
 
             return temp;
@@ -52,12 +54,16 @@ class singlyLinkedList{
             }
             else{
                 Node* ptr = head;
-                
-                while(ptr->next != NULL){
-                    ptr = ptr->next;
-                }
 
-                ptr->next = n; 
+                if (head == NULL){
+                    head = n;
+                }
+                else{
+                    while(ptr->next != NULL){
+                        ptr = ptr->next;
+                    }
+                    ptr->next = n; 
+                }
                 cout<<"Node Appended"<<endl;
             }
         }
@@ -153,7 +159,7 @@ class singlyLinkedList{
 };
 
 int main(){
-    singlyLinkedList(s);
+    singlyLinkedList s;
     int option;
     int key1 , k1 , data1 ;
 
