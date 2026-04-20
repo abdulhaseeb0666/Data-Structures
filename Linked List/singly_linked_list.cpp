@@ -4,8 +4,8 @@ using namespace std;
 
 class Node{
     public:
-        int key;
-        int data;
+        long int key;
+        long int data;
         Node* next;
         
         Node(){
@@ -14,7 +14,7 @@ class Node{
             next = NULL;
         }
 
-        Node(int k , int d){
+        Node(long int k , long int d){
             key = k;
             data = d;
             next  = NULL;
@@ -33,7 +33,7 @@ class singlyLinkedList{
             head = n;     
         }
 
-        Node* nodeExists(int k){
+        Node* nodeExists(long int k){
             Node* temp = NULL;
 
             Node* ptr = head;
@@ -79,7 +79,7 @@ class singlyLinkedList{
             }
         }
 
-        void insertNode(int k , Node *n){
+        void insertNode(long int k , Node *n){
             Node* ptr = nodeExists(k);
             if(ptr == NULL){
                 cout<<"No Node Exits..."<<endl;
@@ -96,7 +96,7 @@ class singlyLinkedList{
             }
         }
 
-        void deleteNodeByKey(int k){
+        void deleteNodeByKey(long int k){
             if(head == NULL){
                 cout<<"Node does not exists..."<<endl;
             }
@@ -132,7 +132,7 @@ class singlyLinkedList{
             }
         }
 
-        void updateNodeByKey(int k , int d){
+        void updateNodeByKey(long int k , long int d){
             Node* ptr = nodeExists(k);
 
             if(ptr == NULL){
@@ -150,8 +150,9 @@ class singlyLinkedList{
             }
             else{
                 Node* ptr = head;
+                cout<<"key\t\tData\t\tAddress\n";
                 while(ptr != NULL){
-                    cout<< ptr->key << "\t" << ptr->data << "\t" << ptr->next <<endl;
+                    cout<< ptr->key << "\t\t" << ptr->data << "\t\t" << ptr->next <<endl;
                     ptr = ptr->next;
                 }
             }
@@ -160,11 +161,11 @@ class singlyLinkedList{
 
 int main(){
     singlyLinkedList s;
-    int option;
-    int key1 , k1 , data1 ;
+    long int option;
+    long int key1 , k1 , data1 ;
 
     do{
-        cout<<"********Menu********\n";
+        cout<<"\n\n********Menu********\n";
         cout<<"1. Append Node"<<endl;
         cout<<"2. Prepend Node"<<endl;
         cout<<"3. Insert Node"<<endl;
