@@ -22,13 +22,17 @@ class Node{
 
 class Stack{
     public:
-        Node* head = NULL;
+        Node* top;
+
+        Stack(){
+            top = NULL;
+        }
 
         Node* nodeExist(int k){
-            Node* ptr = head;
+            Node* ptr = top;
             Node* temp = NULL;
 
-            if(head == NULL){
+            if(top == NULL){
                 return temp;
             }
             else{
@@ -47,7 +51,7 @@ class Stack{
         bool isEmpty(){
             bool isempty = false;
 
-            if(head == NULL){
+            if(top == NULL){
                 isempty = true;
             }
 
@@ -59,40 +63,40 @@ class Stack{
                 cout<<"\nNode already exists...\n";
             }
             else{
-                if(head == NULL){
-                    head = n;
+                if(top == NULL){
+                    top = n;
                 }
                 else{
-                    n->next = head;
-                    head = n;
+                    n->next = top;
+                    top = n;
                 }
                 cout<<"\nNode Pushed Successfully...\n";
             }
         }
 
         void pop(){
-            if(head == NULL){
+            if(top == NULL){
                 cout<<"\nNo node exists...\n";
             }
             else{
-                Node* ptr = head;
-                head = head->next;
+                Node* ptr = top;
+                top = top->next;
                 delete ptr;
             }
         }
 
         void peek(){
-            if(head == NULL){
+            if(top == NULL){
                 cout<<"\nNo node exists...\n";
             }
             else{
                 cout<<"key\t\tData\t\tNext\n";
-                cout<< head->key << "\t\t" << head->data << "\t\t" << head->next <<endl;
+                cout<< top->key << "\t\t" << top->data << "\t\t" << top->next <<endl;
             }
         }
         
         void count(){
-            Node* ptr = head;
+            Node* ptr = top;
             int count = 0;
             if(ptr == NULL){
                 cout<<"\nNo node exists...\n";
@@ -107,7 +111,7 @@ class Stack{
         }
 
         void display(){
-            Node* ptr = head;
+            Node* ptr = top;
             if(ptr == NULL){
                 cout<<"\nNo node exists...\n";
             }
