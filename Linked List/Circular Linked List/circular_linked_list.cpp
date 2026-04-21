@@ -32,14 +32,16 @@ class CircularLinkedList{
                 return temp;
             }
 
-            do{
-                if(ptr->key == k){
-                    temp = ptr;
-                }
-                ptr = ptr->next;
-            } while(ptr != head);
+            else{
+                do{
+                    if(ptr->key == k){
+                        temp = ptr;
+                    }
+                    ptr = ptr->next;
+                } while(ptr != head);
+                return temp;
+            }
             
-            return temp;
         }
 
         void appendNode(Node *n){
