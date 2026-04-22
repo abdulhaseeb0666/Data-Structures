@@ -76,12 +76,13 @@ class Stack{
 
         void pop(){
             if(top == NULL){
-                cout<<"\nNo node exists...\n";
+                cout<<"\Stack Underflowed...\n";
             }
             else{
                 Node* ptr = top;
                 top = top->next;
                 delete ptr;
+                cout<<"\nTop node of Stack is removed...\n";
             }
         }
 
